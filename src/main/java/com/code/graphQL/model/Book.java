@@ -1,19 +1,18 @@
 package com.code.graphQL.model;
 
-import org.springframework.graphql.data.method.annotation.QueryMapping;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
 public record Book(Integer id,
                    String name,
-                   Integer pageCount) {
+                   Integer pageCount,
+                   int authId) {
 
     public static List<Book> books = Arrays.asList(
-            new Book(1,"DATA INTENSIVE APPLICATION", 500),
-            new Book(2, "JAVA BY O'REILLY", 400),
-            new Book(3, "Interview Questions", 700)
+            new Book(1,"DATA INTENSIVE APPLICATION", 500, 1),
+            new Book(2, "JAVA BY O'REILLY", 400,2),
+            new Book(3, "Interview Questions", 700,3 )
     );
 
     public static Optional<Book> getbyId(Integer id) {
